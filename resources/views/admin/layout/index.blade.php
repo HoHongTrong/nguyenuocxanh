@@ -24,6 +24,7 @@
   <link href="admin_asset/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.css"
         rel="stylesheet">
 
+  <link rel="stylesheet" href="{{ asset('/css/style.css') }}">
   <!-- DataTables Responsive CSS -->
   <link href="admin_asset/bower_components/datatables-responsive/css/dataTables.responsive.css" rel="stylesheet">
 </head>

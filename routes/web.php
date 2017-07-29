@@ -25,3 +25,8 @@ Route::group(['prefix' => 'admin'], function () {
 Route::get('pages/dangky','PagesController@getdangky');
 Route::post('pages/dangky','PagesController@postdangky');
 
+Route::get('download','ExportController@getExport');
+
+Route::get('sendmail{id}','PagesController@getDangky');
+Route::post('sendmail{id}','SendMailController@postsendMail');
+

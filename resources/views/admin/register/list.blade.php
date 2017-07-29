@@ -51,6 +51,9 @@
             <td>{{$da->ban->ten}}</td>
           </tr>
             @endforeach
+          <a href="download" class="btndownload"  >
+            <input type="button" value="Download view "/>
+          </a>
 
           </tbody>
         </table>

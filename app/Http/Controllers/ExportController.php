@@ -12,7 +12,7 @@ class ExportController extends Controller
     $dangky = DangKy::all();
     Excel::create('download',function ($excel) use ($dangky){
       $excel->sheet('danhsach',function ($sheet) use ($dangky){
-        $sheet->loadView('admin.register.list',['export'=>$dangky]);
+        $sheet->loadView('admin.register.list',['dangky'=>$dangky]);
       });
     })->export('xlsx');
   }

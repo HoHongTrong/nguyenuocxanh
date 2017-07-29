@@ -5,13 +5,17 @@ namespace App\Http\Controllers;
 use App\Ban;
 use App\DangKy;
 use Illuminate\Http\Request;
+use App\Mail\ConfirmationEmail;
+use Mail;
+
 
 class PagesController extends Controller
 {
   public function getdangky()
   {
+    $dangky = DangKy::all();
     $ban = Ban::all();
-    return view('pages.dangky',['ban'=> $ban]);
+    return view('pages.dangky',['ban'=> $ban,'dangky'=>$dangky]);
   }
   public function postdangky(Request $request){
     $this->validate($request,[
@@ -40,6 +44,9 @@ class PagesController extends Controller
     $dangky->id_ban = $request->ban;
     $dangky->save();
 
+    // send mail
+    $dangky = DangKy::find($dangky->id);
+    Mail::to($dangky['email'])->send(new ConfirmationEmail($dangky));
 
     return redirect('pages/dangky')->with('thongbao','Chúc mừng bạn đã đăng kí thành công');
 
