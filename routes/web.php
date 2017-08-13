@@ -15,10 +15,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::group(['prefix' => 'admin'], function () {
-  Route::get('register/list','DangKyController@getDangky');
+Route::get('admin/login','UserController@getloginAdmin');
+Route::post('admin/login','UserController@postloginAdmin');
+Route::get('admin/logout','UserController@getlogoutAdmin');
 
+Route::group(['prefix' => 'admin','middleware'=>'adminLogin'], function () {
+  Route::get('register/list','DangKyController@getDangky');
   Route::get('download', 'ExportController@getExport');
+
+  Route::get('add', 'UserController@getAdd');
+  Route::post('add', 'UserController@postAdd');
 });
 
 
@@ -30,3 +36,7 @@ Route::get('download','ExportController@getExport');
 Route::get('sendmail{id}','PagesController@getDangky');
 Route::post('sendmail{id}','SendMailController@postsendMail');
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

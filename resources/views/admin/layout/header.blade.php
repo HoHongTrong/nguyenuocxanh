@@ -21,8 +21,6 @@
         @if(isset($user_login))
           <li><a ><i class="fa fa-user fa-fw"></i> {{$user_login->name}}</a>
           </li>
-          <li><a href="admin/user/edit/{{$user_login->id}}"><i class="fa fa-gear fa-fw"></i> Settings</a>
-          </li>
           <li class="divider"></li>
           <li><a href="admin/logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
           </li>

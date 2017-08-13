@@ -29,7 +29,7 @@
 </head>
 
 <body>
-@include('pages.layout.header')
+{{--@include('pages.layout.header')--}}
 @yield('content')
 {{--
           <!-- Page Content -->
